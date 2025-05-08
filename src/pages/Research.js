@@ -289,27 +289,24 @@ const Research = () => {
           </div>
         </section>
         
-        {/* Research Areas Section - Redesigned */}
+        {/* Research Areas Section */}
         <section className="research-areas" ref={researchAreasRef}>
           <div className="container">
             <div className="section-header">
-              <h2>Current Focus</h2>
-              <p>
-                Through my work, I aim to develop solutions that address critical challenges in the building industry, 
-                from enhancing infrastructure resilience to optimizing energy performance and improving user experience.
-              </p>
+              <h2>Research Areas</h2>
+              <p>My research spans several interconnected domains in architecture and construction technology.</p>
             </div>
             
             <div className="research-areas-grid">
               {researchAreas.map((area) => (
-                <motion.div 
-                  key={area.id}
+                <div 
+                  key={area.id} 
                   className="research-area-card"
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                  data-area={area.id}
                 >
                   <div 
                     className="area-icon-container"
-                    style={{ background: area.gradient }}
+                    aria-hidden="true"
                   >
                     <span className="area-icon">{area.icon}</span>
                   </div>
@@ -329,7 +326,7 @@ const Research = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

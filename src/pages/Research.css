@@ -105,7 +105,7 @@
   /* Container */
   .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 5rem 2rem;
   }
@@ -118,10 +118,10 @@
   }
   
   .section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #101820;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: #111827;
     position: relative;
     display: inline-block;
   }
@@ -129,18 +129,21 @@
   .section-header h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -12px;
     left: 50%;
-    width: 60px;
-    height: 3px;
+    width: 80px;
+    height: 4px;
     background: linear-gradient(to right, #4cc9f0, #7209b7);
     transform: translateX(-50%);
+    border-radius: 2px;
   }
   
   .section-header p {
-    font-size: 1.2rem;
-    color: #4a5568;
+    font-size: 1.3rem;
+    color: #4b5563;
     line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
   .section-header.light h2 {
@@ -153,98 +156,272 @@
   
   /* Research Areas Section */
   .research-areas {
-    background-color: #ffffff;
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+    position: relative;
+  }
+  
+  .research-areas::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(76, 201, 240, 0.03) 0%, transparent 30%),
+      radial-gradient(circle at 80% 70%, rgba(114, 9, 183, 0.03) 0%, transparent 30%);
+    pointer-events: none;
   }
   
   .research-areas-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
   }
   
   .research-area-card {
     background-color: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: none;
+    position: relative;
+    height: 100%;
+  }
+  
+  .research-area-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
   
   .research-area-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+  
+  .research-area-card:hover::before {
+    opacity: 1;
   }
   
   .area-icon-container {
-    height: 120px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
+  }
+  
+  .area-icon-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  .area-icon-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+    z-index: 1;
+  }
+  
+  .research-area-card:hover .area-icon-container::before {
+    opacity: 1;
+    transform: scale(1.05);
   }
   
   .area-icon {
-    font-size: 3rem;
+    font-size: 4rem;
     color: white;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+  
+  .research-area-card:hover .area-icon {
+    transform: scale(1.15);
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
   }
   
   .area-card-content {
-    padding: 1.5rem;
+    padding: 2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
   }
   
   .area-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #101820;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: #111827;
     position: relative;
+    transition: all 0.3s ease;
   }
   
   .area-title::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 0;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(to right, #4cc9f0, #7209b7);
+    width: 50px;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+  
+  .research-area-card:hover .area-title::after {
+    width: 70px;
   }
   
   .area-description {
-    color: #4a5568;
-    line-height: 1.6;
+    color: #4b5563;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
     flex: 1;
+    font-size: 1.05rem;
   }
   
   .area-indicators {
     display: flex;
     gap: 2rem;
     margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
   }
   
   .area-indicator {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .area-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    width: 2px;
+    height: 70%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .research-area-card:hover .area-indicator::before {
+    opacity: 0.5;
+  }
+  
+  .research-area-card[data-area="bim"] .area-indicator::before {
+    background-color: #4361ee;
+  }
+  
+  .research-area-card[data-area="specialized-buildings"] .area-indicator::before {
+    background-color: #7209b7;
+  }
+  
+  .research-area-card[data-area="smart-design"] .area-indicator::before {
+    background-color: #f72585;
+  }
+  
+  .research-area-card[data-area="structural-systems"] .area-indicator::before {
+    background-color: #480ca8;
   }
   
   .indicator-value {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #4cc9f0;
+    transition: all 0.3s ease;
+    line-height: 1;
+  }
+  
+  .research-area-card:hover .indicator-value {
+    transform: translateY(-2px);
   }
   
   .indicator-label {
-    font-size: 0.875rem;
-    color: #718096;
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin-top: 0.4rem;
+  }
+  
+  /* Set colors for each research area card */
+  .research-area-card[data-area="bim"] .area-icon-container::before {
+    background: linear-gradient(135deg, #4cc9f0, #4361ee);
+  }
+  
+  .research-area-card[data-area="bim"] .indicator-value {
+    color: #4361ee;
+  }
+  
+  .research-area-card[data-area="specialized-buildings"] .area-icon-container::before {
+    background: linear-gradient(135deg, #7209b7, #3a0ca3);
+  }
+  
+  .research-area-card[data-area="specialized-buildings"] .indicator-value {
+    color: #7209b7;
+  }
+  
+  .research-area-card[data-area="smart-design"] .area-icon-container::before {
+    background: linear-gradient(135deg, #f72585, #b5179e);
+  }
+  
+  .research-area-card[data-area="smart-design"] .indicator-value {
+    color: #f72585;
+  }
+  
+  .research-area-card[data-area="structural-systems"] .area-icon-container::before {
+    background: linear-gradient(135deg, #480ca8, #3f37c9);
+  }
+  
+  .research-area-card[data-area="structural-systems"] .indicator-value {
+    color: #480ca8;
+  }
+  
+  /* Animation for gradient backgrounds */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
   
   /* Research Visualization Section */
@@ -646,4 +823,9 @@
       height: 50px;
       font-size: 2rem;
     }
+  }
+
+  /* Research Page Main Content */
+  .research-page main {
+    background-color: #f8f9fa;
   }
