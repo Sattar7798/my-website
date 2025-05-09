@@ -235,7 +235,7 @@ const ResearchWebVisualization = () => {
     renderer.setSize(threeContainerRef.current.clientWidth, threeContainerRef.current.clientHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
     threeContainerRef.current.appendChild(renderer.domElement);
     
     // Controls

@@ -9,6 +9,7 @@ import Portfolio from './pages/Portfolio';
 import PublicationsPage from './pages/PublicationsPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Design from './pages/Design';
 
 // Components
 import Navbar from './components/Navbar';
@@ -86,6 +87,11 @@ function App() {
             <Route path="/contact" element={
               <AnimationLayout>
                 <Contact />
+              </AnimationLayout>
+            } />
+            <Route path="/design" element={
+              <AnimationLayout>
+                <Design />
               </AnimationLayout>
             } />
           </Routes>

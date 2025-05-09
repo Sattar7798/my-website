@@ -30,6 +30,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Research', path: '/research' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Design', path: '/design' },
     { name: 'Publications', path: '/publications' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' }
